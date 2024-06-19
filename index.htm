@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="assets/favicon-gume.png" type="image/x-icon" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Mario Bros</title>
+</head>
+
+<body>
+  <!-- Background Video Section -->
+  <div class="background-video">
+    <video src="./assets/video.mp4" autoplay muted loop></video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- Header Section -->
+<header class="header">
+  <img
+    src="./assets/logo-header.png"
+    alt="logo Mario Bros"
+    class="logo-header"
+    onclick="toggleNav()"
+  />
+  <!-- Menu button for mobile view -->
+  <div class="menu-button" onclick="toggleNav()"></div>
+  <nav class="header-nav">
+    <a href="#">Home</a>
+    <a href="main.htm">Nosso Serviços</a>
+    <a href="#">Fale Conosco</a>
+  </nav>
+</header>
+
+<!-- Main Content Section -->
+<main class="main-container">
+  <div class="main-content">
+    <img src="./assets/logo.png" alt="logo Mario Bros" class="logo-main" />
+    <h1>
+      Encanadores <span style="color: red">Mario</span> e
+      <span style="color: green">Luigi</span> - Resolvendo seus problemas
+      com estilo!
+    </h1>
+    <p>
+      Chegando em casa e se deparando com sua pia vazando água pode ser
+      estressante, mas não se preocupe, porque estamos aqui para ajudar!
+      Somos os encanadores mais famosos do Reino do Cogumelo, prontos para
+      resolver qualquer problema de encanamento com rapidez.
+    </p>
+    <button onclick="mostrarForm()">Entre em contato</button>
+  </div>
+  <div class="image-container">
+    <img
+      src="./assets/mario.png"
+      alt="Mario e Luigi"
+      class="image-mario-luigi"
+    />
+  </div>
+</main>
+
+<!-- WhatsApp Contact Link -->
+<a
+  href=" https://wa.me/05551983012611"
+  class="whatsapp-link"
+  target="_blank"
+>
+  <img src="./assets/whats.png" alt="WhatsApp Contact" />
+</a>
+
+<!-- Contact Form -->
+<div class="contact-mask" onclick="esconderForm()"></div>
+
+<form
+  class="contact-form"
+  action="https://formcarry.com/s/fKRrxqkfguT"
+  method="POST"
+  enctype="multipart/form-data"
+><H2 style="color: black;">Fale Conosco</H2>
+  <input type="text" name="nome" placeholder="Seu nome" />
+  <input type="tel" name="telefone" placeholder="Seu telefone" />
+  <textarea
+    name="duvida"
+    placeholder="Digite seu problema aqui..."
+  ></textarea>
+  <button type="submit" target="_blank">Pedir Orçamento</button>
+</form>
+
+<script src="script.js"></script>
+
+  <!-- <script src="main.js"></script> -->
+
+  
+</body>
+
+</html>

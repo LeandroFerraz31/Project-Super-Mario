@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="assets/favicon-gume.png" type="image/x-icon" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Mario Bros</title>
+</head>
+
+<body>
+  <!-- Background Video Section -->
+  <div class="background-video">
+    <video src="./assets/video.mp4" autoplay muted loop></video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="header" >
+    <img src="./assets/logo-header.png" alt="logo Mario Bros" class="logo-header" onclick="toggleNav()" />
+    <!-- Menu button for mobile view -->
+    <div class="menu-button" onclick="toggleNav()"></div>
+    <nav class="header-nav">
+      <a href="index.htm"   onclick="showHomePage()">Home</a>
+      <a href="#"  onclick="showServicesPage()">Nosso Serviços</a>
+      <a href="#"  onclick="showContactPage()">Fale Conosco</a>
+    </nav>
+    
+  </header>
+
+  <h3>Serviços</h3>
+  <ul id="service-list"></ul>
+  
+  
+
+
+  
+  <script src="main.js"></script>
+  <script src="script.js"></script>
+  
+</body>
+
+</html>

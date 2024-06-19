@@ -1,0 +1,10 @@
+{
+    "graalvm.home": "",
+    "graalvm.installations": [
+        ""
+    ],
+    "terminal.integrated.env.windows": {
+        "GRAALVM_HOME": ""
+    },
+    "java.configuration.runtimes": []
+}

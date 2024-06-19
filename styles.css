@@ -1,0 +1,491 @@
+
+
+/* Resetting default browser styles and setting global box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styling for body to fill viewport height */
+body {
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow: hidden;
+  /* Prevent scrolling to maintain video background */
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: relative;
+   align-content: stretch; 
+  align-items: center;
+  /* Needed for absolute positioning of nav */
+}
+
+.header .logo-header {
+  height: 60px;
+  cursor: pointer;
+  /* Indicate that the logo is clickable */
+}
+
+/* Default horizontal navigation for larger screens */
+.header-nav {
+  display: flex;
+  gap: 73px;
+}
+
+.header nav a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  transition: color 0.3s, font-size 0.3s;
+}
+
+.header nav a:hover {
+  color: #c51111;
+  font-size: 26px;
+}
+
+/* Menu button hidden by default and only shown on smaller screens */
+.menu-button {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+ /* Mobile and Tablet View Navigation */
+ @media (max-width: 768px) {
+  .menu-button {
+  display: block;
+  /* Show the menu button */
+  }
+.header-nav {
+  clip-path: circle(241px at left 434px);
+  /* border-radius: 10000px; */
+  flex-direction: column;
+  position: absolute;
+  left: -100%;
+  top: 0;
+  height: 100vh;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: left 0.3s ease-in-out;
+  width: 53%;
+  z-index: 10;
+  }
+  
+  .header-nav.active {
+  left: 0;
+  /* Slide in the navigation */
+  }
+  
+  .header nav a {
+  margin: 15px 0;
+  font-size: 20px;
+  }
+ }
+/* Main Content Section */
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+  height: 90vh;
+}
+
+.main-content {
+  width: 40%;
+  text-align: left;
+}
+
+.main-content .logo-main {
+  height: 200px;
+}
+
+.main-content p {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.main-content button {
+  color: white;
+  background-color: #c51111;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 30px;
+  transition: background-color 0.3s;
+}
+
+.main-content button:hover {
+  background-color: #a00f0f;
+}
+
+.image-container .image-mario-luigi {
+  height: 500px;
+  max-height: 50vh;
+  /* Ensures the image adapts to the screen size */
+}
+
+/* Background Video Section */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  /* Send the video behind the main content */
+}
+
+.background-video video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  /* Ensures the video covers the entire background */
+}
+
+.video-overlay {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(109deg,
+      rgba(10, 12, 16, 0.99) 2%,
+      rgba(10, 12, 16, 0.5) 60%,
+      rgba(10, 12, 16, 0.99) 95%);
+  /* Darken the video background slightly */
+  position: fixed;
+  top: 0;
+  /* Dark overlay for better contrast */
+}
+
+/* WhatsApp Contact Link */
+.whatsapp-link img {
+  height: 80px;
+  position: fixed;
+  right: 36px;
+  bottom: 70px;
+  z-index: 1;
+}
+
+/* Contact Form */
+.contact-mask {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 12, 16, 0.7);
+  transition: visibility 1s ease-in-out;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  position: fixed;
+  left: -100vw;
+  /* Initially hidden outside the viewport */
+  top: 30%;
+  transition: left 0.3s ease-in-out;
+}
+
+.contact-form input {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  outline-color: chartreuse;
+  width: 320px;
+  margin-top: 20px;
+}
+
+textarea {
+  height: 150px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  outline-color: chartreuse;
+  width: 320px;
+  margin-top: 20px;
+}
+
+.contact-form button {
+  background-color: #18d80f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+}
+
+.contact-form button:hover {
+  background-color: #14b80c;
+}
+
+.contact-form.active {
+  left: 35%;
+  /* Slide in the form */
+  width: 28%;
+  /* Adjust width based on your preference */
+  height: 50%;
+  transition: 0.8s;
+}
+
+
+ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(341px, 1fr));
+  gap: 25px;
+  padding: 0px 20px;
+  margin-top: 20px;
+}
+
+.service-item { /* Use uma classe específica para estilizar os itens da galeria de serviços */
+    border: 2px solid #fcc801;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: transform 0.5s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-item:hover { /* Aplica o efeito de hover */
+    transform: scale(1.05);
+}
+
+.service-image { /* Use uma classe específica para estilizar as imagens dos serviços */
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.service-details { /* Use uma classe específica para estilizar o container dos detalhes do serviço */
+    margin-top: 10px;
+    text-align: center;
+}
+
+h3{
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    margin: 54px 0px 54px 0px;
+}
+
+.service-name { /* Use uma classe específica para estilizar o nome do serviço */
+    color: #fff;
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.service-description { /* Use uma classe específica para estilizar a descrição do serviço */
+    color: #ccc;
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+
+.item-price { /* Já existente para estilizar o preço do item */
+    font-weight: bold;
+    color: #fcc801;
+    margin-top: 10px;
+}
+
+
+/* Responsive Design Adjustments */
+
+/* For tablets and smaller laptops */
+@media (max-width: 1200px) {
+  .main-content .logo-main {
+    height: 150px;
+  }
+
+  .image-container .image-mario-luigi {
+    height: 400px;
+  }
+
+  .main-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .main-content {
+    width: 100%;
+    text-align: center;
+  }
+  .contact-form.active {
+  width: 35%;
+  }
+}
+
+/* For smartphones and small tablets */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header nav {
+    display: flex;
+    flex-direction: column;
+    clip-path: circle(161px at left 184px);
+    width: 55%;
+    height: 348%;
+    margin-top: 89px;
+    align-items: flex-start;
+    gap: 27px;
+    padding: 13px;
+    /* margin-bottom: 135px; */
+    justify-content: center;
+  }
+
+  .header nav a {
+    font-size: 18px;
+  }
+
+  .main-container {
+    padding: 20px;
+  }
+
+  .main-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .main-content .logo-main {
+    height: 120px;
+  }
+
+  .image-container {
+    margin-top: 20px;
+  }
+
+  .image-container .image-mario-luigi {
+    height: 300px;
+  }
+
+  .main-content button {
+    width: 150px;
+    height: 40px;
+  }
+
+  .contact-form {
+    left: -150vw;
+    /* Fully hide off the screen */
+    top: auto;
+    bottom: 150px;
+  }
+
+  .contact-form.active {
+    left: 10%;
+    width: 80%;
+  }
+
+  .contact-form input, textarea {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .whatsapp-link img {
+    height: 10%;
+
+  }
+}
+
+/* For very small devices (like small smartphones) */
+@media (max-width: 480px) {
+  .header nav a {
+    font-size: 16px;
+  }
+
+  .main-content .logo-main {
+    height: 100px;
+  }
+
+  .logo-main {
+    display: none;
+  }
+  .main-content h1{
+    margin-top: 60px;
+    font-size: 20px;
+  }
+
+  .main-content p {
+    display: none;
+  }
+
+  /* .video-overlay {
+    display: none;
+  } */
+
+  .image-container .image-mario-luigi {
+    height: 200px;
+    margin-bottom: 150px;
+  }
+
+  .main-content button {
+    width: 100px;
+    height: 40px;
+  }
+
+  .contact-form {
+    left: -150vw;
+    /* Fully hide off the screen */
+    top: auto;
+    bottom: 120px;
+  }
+
+  .contact-form.active {
+    left: 10%;
+    width: 80%;
+    height: 60%;
+
+  }
+
+  .contact-form input {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-top: 5px;
+
+  }
+  .whatsapp-link img {
+    position: relative;
+    height: 8%;
+    margin-top: -32px;
+    left: 252px;
+}
+
+
+}
